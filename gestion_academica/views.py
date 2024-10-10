@@ -26,3 +26,11 @@ class EvaluacionViewSet(viewsets.ModelViewSet):
 class SolicitudViewSet(viewsets.ModelViewSet):
     queryset = Solicitud.objects.all()
     serializer_class = SolicitudSerializer
+
+class EstadoEstudianteViewSet(viewsets.ModelViewSet):
+    queryset = EstadoEstudiante.object.all()
+    serializer_class = EstadoEstudianteSerializer
+
+class AdministrativoViewSet(viewsets.ModelViewSet):
+    queryset = Administrativo.object.all()
+    serializer_class = AdministrativoSerializer
