@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIVISIST 3 - Plataforma Académica</title>
+    <link rel="stylesheet" href="{% static 'gestionacademica/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>DIVISIST 3</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#materias">Materias</a></li>
+                <li><a href="#profesores">Profesores</a></li>
+                <li><a href="#carreras">Carreras</a></li>
+                <li><a href="#perfil">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio">
+            <h2>Bienvenido a DIVISIST 3</h2>
+            <p>Explora y gestiona tu información académica fácilmente.</p>
+        </section>
+        <section id="materias">
+            <h2>Consulta de Materias</h2>
+            <p>Aquí puedes consultar las materias disponibles en tu programa.</p>
+        </section>
+        <section id="profesores">
+            <h2>Listado de Profesores</h2>
+            <p>Accede a la información de los profesores de cada materia.</p>
+        </section>
+        <section id="carreras">
+            <h2>Programas Académicos</h2>
+            <p>Explora las diferentes carreras ofrecidas en la institución.</p>
+        </section>
+        <section id="perfil">
+            <h2>Perfil</h2>
+            <p>Gestiona tu perfil y configuración personal.</p>
+        </section>
+    </main>
+</body>
+</html>
