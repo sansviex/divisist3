@@ -67,7 +67,7 @@ class Administrador(Usuario):
 
 # Modelo Curso
 class Curso(models.Model):
-    codigo = models.CharField(max_length=10, unique=True)
+    codigo = models.CharField(max_length=10, unique=True, default='default_codigo')
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     estudiantes = models.ManyToManyField(Estudiante, related_name='cursos_inscritos', blank=True)
@@ -87,7 +87,7 @@ class Documento(models.Model):
 
 # Modelo Evaluacion
 class Evaluacion(models.Model):
-    curso = models.ForeignKey(Curso, on_delete=models.CASCADE, related_name='evaluaciones')
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE, related_name='evaluaciones',default=1)
     tipo = models.CharField(max_length=50)
     fecha = models.DateField()
     nota = models.DecimalField(max_digits=3, decimal_places=1)
@@ -115,3 +115,21 @@ class Solicitud(models.Model):
 
     def __str__(self):
         return f"Solicitud: {self.tipo} por {self.usuario.email}"
+
+class EstadoEstudiante(models.Model):
+    estudiante = models.OneToOneField(
+        Estudiante, 
+        on_delete=models.CASCADE, 
+        related_name='estado'
+    )
+    estado_actual = models.CharField(max_length=50)  # Ejemplo: 'Activo', 'Graduado', 'Retirado'
+    comentarios = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Estado: {self.estado_actual} de {self.estudiante.nombre}"
+    
+class Administrativo(Usuario):
+    departamento = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"Administrativo: {self.nombre} {self.apellido} - {self.departamento}"

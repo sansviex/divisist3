@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Usuario, Estudiante, Profesor, Curso, Evaluacion, Solicitud
-from .serializers import UsuarioSerializer, EstudianteSerializer, ProfesorSerializer, CursoSerializer, EvaluacionSerializer, SolicitudSerializer
+from .models import Administrativo, EstadoEstudiante, Usuario, Estudiante, Profesor, Curso, Evaluacion, Solicitud
+from .serializers import AdministrativoSerializer, EstadoEstudianteSerializer, UsuarioSerializer, EstudianteSerializer, ProfesorSerializer, CursoSerializer, EvaluacionSerializer, SolicitudSerializer
 from django.shortcuts import render
 
 # view para gestionar usuarios (estudiante y profesores)
@@ -34,12 +34,14 @@ class SolicitudViewSet(viewsets.ModelViewSet):
     serializer_class = SolicitudSerializer
 
 class EstadoEstudianteViewSet(viewsets.ModelViewSet):
-    queryset = EstadoEstudiante.object.all()
+    queryset = EstadoEstudiante.objects.all()
     serializer_class = EstadoEstudianteSerializer
 
 class AdministrativoViewSet(viewsets.ModelViewSet):
-    queryset = Administrativo.object.all()
+    queryset = Administrativo.objects.all()
     serializer_class = AdministrativoSerializer
+
+
 
 def index(request): 
     return render (request, 'gestionacademica/index.html')

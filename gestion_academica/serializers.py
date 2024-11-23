@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Usuario, Estudiante, Profesor, Curso, Evaluacion, Solicitud
+from .models import Administrativo, EstadoEstudiante, Usuario, Estudiante, Profesor, Curso, Evaluacion, Solicitud
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,4 +34,13 @@ class SolicitudSerializer(serializers.ModelSerializer):
     class Meta:
         model = Solicitud
         fields = ['id', 'estudiante', 'tipo_solicitud', 'estado', 'fecha_creacion']
-      
+
+class EstadoEstudianteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EstadoEstudiante
+        fields = '__all__'
+
+class AdministrativoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Administrativo
+        fields = '__all__'
